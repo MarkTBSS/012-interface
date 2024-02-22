@@ -1,2 +1,2 @@
-module github.com/MarkTBSS/go-interface
+module github.com/MarkTBSS/012-interface
 go 1.21.5

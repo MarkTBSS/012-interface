@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/MarkTBSS/go-interface/models"
+	"github.com/MarkTBSS/012-interface/models"
 )
 
 type IprivateStructBook interface {
