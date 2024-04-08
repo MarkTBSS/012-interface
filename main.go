@@ -3,54 +3,33 @@ package main
 import (
 	"fmt"
 
-	"github.com/MarkTBSS/012-interface/models"
+	models "github.com/MarkTBSS/012-interface/book"
 )
 
-type IprivateStructBook interface {
-	Getter() models.PublicStructBook
+type IObject interface {
+	Getter() models.Book
 	Setter(name string)
 }
 
-type privateStructBook struct {
-	id     int
-	name   string
-	author string
-}
-
-func NewBook(id int, name, author string) IprivateStructBook {
-	return &privateStructBook{
-		id:     id,
-		name:   name,
-		author: author,
+func NewBook(id int, name, author string) IObject {
+	return &models.Book{
+		ID:     id,
+		Name:   name,
+		Author: author,
 	}
-}
-
-// Getter is a method for privateStructBook that returns a PublicStructBook
-func (b *privateStructBook) Getter() models.PublicStructBook {
-	return models.PublicStructBook{
-		Id:     b.id,
-		Name:   b.name,
-		Author: b.author,
-	}
-}
-
-func (b *privateStructBook) Setter(name string) {
-	b.name = name
 }
 
 func main() {
-	book1 := privateStructBook{
-		id:     1,
-		name:   "book1",
-		author: "bookAuthor1",
+	book1 := models.Book{
+		ID:     1,
+		Name:   "book1",
+		Author: "bookAuthor1",
 	}
 	fmt.Println(book1)
 
-	// Use the Getter method to convert privateStructBook to PublicStructBook
-	publicBook := book1.Getter()
-	fmt.Println(publicBook)
+	b := book1.Getter()
+	fmt.Println(b)
 
-	// Use the Setter method to modify the 'name' field
 	book1.Setter("Name Changed")
 	fmt.Println(book1)
 
